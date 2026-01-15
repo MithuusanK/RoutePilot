@@ -1,0 +1,5 @@
+stop_sequence,stop_type,address,city,state,zip,latitude,longitude,earliest_time,latest_time,service_duration_minutes,notes,contact_name,contact_phone,reference_number
+1,PICKUP,1200 Industrial Pkwy,Dallas,TX,75247,32.8357,-96.9217,2026-01-20T08:00:00,2026-01-20T10:00:00,45,Use dock 3. Gate code 1234,John Smith,2145551234,PO-98765
+2,DELIVERY,450 Commerce Dr,Oklahoma City,OK,73102,35.4676,-97.5164,2026-01-20T14:00:00,2026-01-20T18:00:00,30,Call before arrival,Maria Garcia,4055559876,BOL-54321
+3,WAYPOINT,,,,,39.7392,-104.9903,,,15,Fuel stop - Pilot Flying J,,,
+4,DELIVERY,8900 Warehouse Blvd,Kansas City,MO,64161,39.2045,-94.5701,2026-01-21T09:00:00,2026-01-21T12:00:00,60,Liftgate required,Tom Johnson,8165552468,DEL-78910

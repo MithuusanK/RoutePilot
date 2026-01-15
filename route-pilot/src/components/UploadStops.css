@@ -1,0 +1,333 @@
+/* Mobile-responsive upload component styles */
+
+.upload-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.upload-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.upload-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+.upload-subtitle {
+  color: #6b7280;
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+/* Sample section */
+.sample-section {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.btn-sample {
+  background: #f3f4f6;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-sample:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+.btn-sample:active {
+  transform: scale(0.98);
+}
+
+/* File upload area */
+.upload-area {
+  margin-bottom: 1.5rem;
+}
+
+.file-label {
+  display: block;
+  width: 100%;
+  border: 3px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #f9fafb;
+}
+
+.file-label:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.file-label:active {
+  background: #dbeafe;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.file-icon {
+  font-size: 3rem;
+}
+
+.file-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  word-break: break-word;
+}
+
+.file-subtext {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Upload button */
+.btn-upload {
+  width: 100%;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.btn-upload:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btn-upload:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-upload:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Alert boxes */
+.alert {
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.alert-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.alert-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.alert-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  color: #1f2937;
+}
+
+.error-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #991b1b;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.error-list li {
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+
+.result-info {
+  color: #166534;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Preview section */
+.preview-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.preview-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+}
+
+.preview-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.preview-table {
+  width: 100%;
+  min-width: 500px; /* Ensure table doesn't get too narrow */
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.preview-table th {
+  background: #f3f4f6;
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.preview-table td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge-pickup {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-delivery {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-waypoint {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.coords {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.text-muted {
+  color: #9ca3af;
+}
+
+/* Instructions */
+.instructions {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.instructions-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+}
+
+.instructions-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.instructions-list li {
+  margin-bottom: 0.5rem;
+}
+
+.instructions-list strong {
+  color: #1f2937;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .upload-container {
+    padding: 0.5rem;
+  }
+
+  .upload-card {
+    padding: 1rem;
+  }
+
+  .upload-title {
+    font-size: 1.5rem;
+  }
+
+  .file-label {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .file-icon {
+    font-size: 2.5rem;
+  }
+
+  .preview-table {
+    font-size: 0.8rem;
+  }
+
+  .preview-table th,
+  .preview-table td {
+    padding: 0.5rem 0.25rem;
+  }
+
+  .btn-sample,
+  .btn-upload {
+    font-size: 0.9rem;
+  }
+}
+
+/* Touch-friendly tap targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .file-label,
+  .btn-sample,
+  .btn-upload {
+    min-height: 44px; /* iOS minimum tap target */
+  }
+}

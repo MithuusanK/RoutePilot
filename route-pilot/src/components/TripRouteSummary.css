@@ -1,0 +1,303 @@
+/* TripRouteSummary component styles - mobile-responsive trucking UI */
+
+.route-summary-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.route-summary-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+  border: 1px solid #e5e7eb;
+}
+
+.route-summary-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+/* Generate Route button */
+.btn-generate-route {
+  width: 100%;
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+}
+
+.btn-generate-route:hover:not(:disabled) {
+  background: #1e40af;
+}
+
+.btn-generate-route:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-generate-route:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Hint text when disabled */
+.route-hint {
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+  margin: 0.75rem 0 0 0;
+}
+
+/* Alert boxes */
+.route-alert {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: 8px;
+  padding: 0.875rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.route-alert-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.route-alert-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.route-alert-icon {
+  flex-shrink: 0;
+}
+
+.route-alert-message {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Retry button */
+.btn-retry {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+.btn-retry:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.btn-retry:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Route results */
+.route-results {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.route-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.route-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.route-stat-distance {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.route-stat-time {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.route-stat-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.route-stat-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevents text overflow */
+}
+
+.route-stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  white-space: nowrap;
+}
+
+.route-stat-distance .route-stat-value {
+  color: #1e40af;
+}
+
+.route-stat-time .route-stat-value {
+  color: #166534;
+}
+
+.route-stat-label {
+  font-size: 0.75rem;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Disclaimer */
+.route-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  padding: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.route-disclaimer-icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.route-disclaimer-text {
+  font-size: 0.85rem;
+  color: #92400e;
+  line-height: 1.4;
+}
+
+.route-disclaimer-text strong {
+  color: #78350f;
+}
+
+/* Notes */
+.route-notes {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.route-notes-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.route-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.route-note + .route-note {
+  margin-top: 0.25rem;
+}
+
+/* Engine badge */
+.route-engine-badge {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Mobile responsiveness - stack cards on small screens */
+@media (max-width: 480px) {
+  .route-summary-card {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .route-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .route-stat {
+    padding: 0.875rem;
+  }
+
+  .route-stat-value {
+    font-size: 1.1rem;
+  }
+
+  .route-stat-label {
+    font-size: 0.7rem;
+  }
+
+  .route-disclaimer {
+    padding: 0.75rem;
+  }
+
+  .route-disclaimer-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* Touch-friendly tap targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .btn-generate-route {
+    min-height: 52px;
+  }
+
+  .btn-retry {
+    min-height: 44px;
+    padding: 0.625rem 1.25rem;
+  }
+}

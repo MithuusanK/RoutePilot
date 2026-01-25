@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './UploadStops.css';
+import TripRouteSummary from './TripRouteSummary';
 
 export default function UploadStops() {
   const [file, setFile] = useState(null);
@@ -181,6 +182,20 @@ export default function UploadStops() {
                     </tbody>
                   </table>
                 </div>
+              </div>
+            )}
+
+            {/* Route Calculation Section - shows Generate Route button */}
+            {result.preview && result.preview.length >= 2 && (
+              <div className="route-calc-section">
+                <TripRouteSummary
+                  tripId="preview"
+                  stops={result.preview.map(stop => ({
+                    lat: stop.latitude,
+                    lng: stop.longitude
+                  }))}
+                  disabled={false}
+                />
               </div>
             )}
           </div>

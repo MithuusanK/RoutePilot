@@ -57,7 +57,9 @@ def validate_csv_dataframe(df: pd.DataFrame) -> Tuple[bool, List[str]]:
     # Validate stop_type values
     valid_stop_types = {'PICKUP', 'DELIVERY', 'WAYPOINT', 'pickup', 'delivery', 'waypoint'}
     if 'stop_type' in df.columns:
-        invalid_types = df[~df['stop_type'].str.upper().isin({'PICKUP', 'DELIVERY', 'WAYPOINT'})]
+        # Handle NaN values and invalid types
+        stop_type_upper = df['stop_type'].fillna('').astype(str).str.upper()
+        invalid_types = df[~stop_type_upper.isin({'PICKUP', 'DELIVERY', 'WAYPOINT', ''})]
         if not invalid_types.empty:
             errors.append(
                 f"Invalid stop_type values at rows {invalid_types.index.tolist()}: "
@@ -130,9 +132,9 @@ def validate_csv_dataframe(df: pd.DataFrame) -> Tuple[bool, List[str]]:
     
     # Validate state format (2 letters) if present
     if 'state' in df.columns:
-        invalid_states = df[
-            df['state'].notna() & (~df['state'].str.match(r'^[A-Za-z]{2}$'))
-        ]
+        state_filled = df['state'].fillna('').astype(str)
+        state_valid = state_filled.str.match(r'^[A-Za-z]{2}$') | (state_filled == '')
+        invalid_states = df[~state_valid]
         if not invalid_states.empty:
             errors.append(
                 f"state must be 2-letter code (invalid at rows: {invalid_states.index.tolist()})"
@@ -140,9 +142,9 @@ def validate_csv_dataframe(df: pd.DataFrame) -> Tuple[bool, List[str]]:
     
     # Validate ZIP format (5 digits) if present
     if 'zip' in df.columns:
-        invalid_zips = df[
-            df['zip'].notna() & (~df['zip'].astype(str).str.match(r'^\d{5}$'))
-        ]
+        zip_filled = df['zip'].fillna('').astype(str).str.replace('.0', '', regex=False)
+        zip_valid = zip_filled.str.match(r'^\d{5}$') | (zip_filled == '')
+        invalid_zips = df[~zip_valid]
         if not invalid_zips.empty:
             errors.append(
                 f"zip must be 5-digit code (invalid at rows: {invalid_zips.index.tolist()})"
@@ -150,10 +152,9 @@ def validate_csv_dataframe(df: pd.DataFrame) -> Tuple[bool, List[str]]:
     
     # Validate phone format (10 digits) if present
     if 'contact_phone' in df.columns:
-        invalid_phones = df[
-            df['contact_phone'].notna() & 
-            (~df['contact_phone'].astype(str).str.match(r'^\d{10}$'))
-        ]
+        phone_filled = df['contact_phone'].fillna('').astype(str).str.replace('.0', '', regex=False)
+        phone_valid = phone_filled.str.match(r'^\d{10}$') | (phone_filled == '')
+        invalid_phones = df[~phone_valid]
         if not invalid_phones.empty:
             errors.append(
                 f"contact_phone must be 10-digit number (invalid at rows: {invalid_phones.index.tolist()})"

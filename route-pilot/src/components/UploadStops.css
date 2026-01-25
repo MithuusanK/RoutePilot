@@ -255,6 +255,38 @@
   color: #9ca3af;
 }
 
+/* Route calculation section in success display */
+.route-calc-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #bbf7d0;
+}
+
+.btn-show-route-calc {
+  width: 100%;
+  background: #059669;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-show-route-calc:hover {
+  background: #047857;
+}
+
+.btn-show-route-calc:active {
+  transform: scale(0.98);
+}
+
 /* Instructions */
 .instructions {
   background: #f9fafb;

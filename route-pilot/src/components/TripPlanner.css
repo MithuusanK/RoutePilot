@@ -1,0 +1,497 @@
+/**
+ * Trip Planner Styles
+ * 
+ * Clean, accessible form design for trip planning.
+ */
+
+.trip-planner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.planner-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+/* Progress Steps */
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.progress-step.active {
+  opacity: 1;
+}
+
+.progress-step.completed {
+  opacity: 0.7;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.progress-step.active .step-number {
+  background: #2563eb;
+  color: white;
+}
+
+.progress-step.completed .step-number {
+  background: #10b981;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+.progress-step.active .step-label {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Error Display */
+.planner-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #991b1b;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Step Content */
+.step-content {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 120px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Start Location */
+.start-location {
+  background: #f0fdf4;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #bbf7d0;
+}
+
+.start-location h4 {
+  margin: 0 0 1rem 0;
+  color: #166534;
+}
+
+/* Stops List */
+.stops-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stop-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.stop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.stop-number {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.btn-remove {
+  background: #fee2e2;
+  color: #991b1b;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-remove:hover {
+  background: #fecaca;
+}
+
+/* Add Stop Button */
+.btn-add-stop {
+  width: 100%;
+  padding: 1rem;
+  background: #f3f4f6;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.btn-add-stop:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+  color: #374151;
+}
+
+/* Step Actions */
+.step-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.btn-back {
+  padding: 0.75rem 1.5rem;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  background: #e5e7eb;
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-start {
+  background: #10b981;
+}
+
+.btn-start:hover:not(:disabled) {
+  background: #059669;
+}
+
+/* Route Summary */
+.route-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-stat {
+  background: #eff6ff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.summary-stat .stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.summary-stat .stat-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+/* Route Explanation */
+.route-explanation {
+  background: #f0fdf4;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #10b981;
+}
+
+.route-explanation h4 {
+  margin: 0 0 0.5rem 0;
+  color: #166534;
+}
+
+.route-explanation p {
+  margin: 0;
+  color: #374151;
+}
+
+.avoided-hazard {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #fef3c7;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: #92400e;
+}
+
+/* HOS Impact */
+.hos-impact {
+  background: #dbeafe;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.hos-impact h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1e40af;
+}
+
+.hos-details p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+/* Planned Breaks */
+.planned-breaks {
+  background: #fef3c7;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.planned-breaks h4 {
+  margin: 0 0 0.75rem 0;
+  color: #92400e;
+}
+
+.break-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #fcd34d;
+  font-size: 0.875rem;
+}
+
+.break-item:last-child {
+  border-bottom: none;
+}
+
+.break-type {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.break-location {
+  flex: 1;
+  margin: 0 1rem;
+  color: #6b7280;
+}
+
+.break-duration {
+  font-weight: 600;
+}
+
+/* Route Alerts */
+.route-alerts {
+  margin-bottom: 1rem;
+}
+
+.route-alerts h4 {
+  margin: 0 0 0.75rem 0;
+}
+
+.route-alerts .alert-item {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid;
+}
+
+.route-alerts .alert-item.warning {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.route-alerts .alert-item.critical {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+
+.route-alerts .alert-item.info {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.route-alerts .alert-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.route-alerts .alert-item p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.route-alerts .suggestion {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .trip-planner {
+    padding: 1rem;
+  }
+
+  .step-content {
+    padding: 1rem;
+  }
+
+  .route-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-row .form-group {
+    min-width: 100%;
+  }
+
+  .step-actions {
+    flex-direction: column-reverse;
+  }
+
+  .step-actions button {
+    width: 100%;
+  }
+}

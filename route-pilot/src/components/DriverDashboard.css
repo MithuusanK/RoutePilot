@@ -1,0 +1,486 @@
+/**
+ * Driver Dashboard Styles
+ * 
+ * Mobile-first, trucker-friendly design:
+ * - Large touch targets (min 48px)
+ * - High contrast colors
+ * - Night mode support
+ * - Minimal clutter
+ */
+
+/* Base Layout */
+.driver-dashboard {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Night Mode */
+.driver-dashboard.night-mode {
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+
+.driver-dashboard.night-mode .hos-card,
+.driver-dashboard.night-mode .trip-card,
+.driver-dashboard.night-mode .quick-actions,
+.driver-dashboard.night-mode .hos-actions,
+.driver-dashboard.night-mode .alerts-section {
+  background: #16213e;
+  border-color: #2a3f5f;
+}
+
+.driver-dashboard.night-mode .card-title {
+  color: #e0e0e0;
+}
+
+.driver-dashboard.night-mode .hos-label,
+.driver-dashboard.night-mode .stat-label {
+  color: #a0a0a0;
+}
+
+/* Header */
+.driver-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.driver-dashboard.night-mode .driver-header {
+  border-color: #2a3f5f;
+}
+
+.driver-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+}
+
+.driver-dashboard.night-mode .driver-title {
+  color: #fff;
+}
+
+.driver-id {
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #e5e7eb;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.driver-dashboard.night-mode .driver-id {
+  background: #2a3f5f;
+  color: #a0a0a0;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.25rem;
+  color: #6b7280;
+}
+
+/* Message Display */
+.driver-message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.driver-message.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.driver-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.driver-dashboard.night-mode .driver-message.success {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.driver-dashboard.night-mode .driver-message.error {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+/* Card Base Styles */
+.hos-card,
+.trip-card,
+.quick-actions,
+.hos-actions,
+.alerts-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+/* HOS Card */
+.hos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.hos-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.driver-dashboard.night-mode .hos-item {
+  background: #1a1a2e;
+}
+
+.hos-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.driver-dashboard.night-mode .hos-value {
+  color: #60a5fa;
+}
+
+.hos-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.hos-status {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.hos-status.ok {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.hos-status.warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.hos-warning {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.driver-dashboard.night-mode .hos-warning {
+  background: #78350f;
+  color: #fcd34d;
+}
+
+/* Trip Card */
+.trip-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.trip-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.driver-dashboard.night-mode .stat-value {
+  color: #60a5fa;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.next-stop {
+  background: #eff6ff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.driver-dashboard.night-mode .next-stop {
+  background: #1e3a5f;
+}
+
+.next-stop-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.next-stop-location {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.driver-dashboard.night-mode .next-stop-location {
+  color: #fff;
+}
+
+.trip-card.empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-message {
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Quick Actions - Large Touch Targets */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px; /* Large touch target */
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.action-arrived {
+  background: #10b981;
+  color: white;
+}
+
+.action-arrived:hover:not(:disabled) {
+  background: #059669;
+}
+
+.action-break {
+  background: #f59e0b;
+  color: white;
+}
+
+.action-break:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.action-late {
+  background: #ef4444;
+  color: white;
+}
+
+.action-late:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.action-fuel {
+  background: #3b82f6;
+  color: white;
+}
+
+.action-fuel:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+/* HOS Actions */
+.hos-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.hos-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.hos-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hos-driving {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.hos-driving:hover:not(:disabled) {
+  background: #bbf7d0;
+}
+
+.hos-stop {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.hos-stop:hover:not(:disabled) {
+  background: #fecaca;
+}
+
+.hos-rest {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.hos-rest:hover:not(:disabled) {
+  background: #bfdbfe;
+}
+
+.hos-end-rest {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.hos-end-rest:hover:not(:disabled) {
+  background: #fde68a;
+}
+
+/* Night Mode Button Overrides */
+.driver-dashboard.night-mode .hos-driving {
+  background: #064e3b;
+  color: #6ee7b7;
+  border-color: #10b981;
+}
+
+.driver-dashboard.night-mode .hos-stop {
+  background: #7f1d1d;
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
+.driver-dashboard.night-mode .hos-rest {
+  background: #1e3a8a;
+  color: #93c5fd;
+  border-color: #3b82f6;
+}
+
+.driver-dashboard.night-mode .hos-end-rest {
+  background: #78350f;
+  color: #fcd34d;
+  border-color: #f59e0b;
+}
+
+/* Alerts Section */
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.alert-item {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.alert-item.warning {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.alert-item.critical {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+
+.alert-item.info {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.alert-title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.alert-message {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+/* Responsive - Tablet & Desktop */
+@media (min-width: 768px) {
+  .driver-dashboard {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .action-grid,
+  .hos-action-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

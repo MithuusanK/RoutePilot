@@ -81,6 +81,28 @@
   background-color: #eff6ff;
 }
 
+.btn-outline {
+  background-color: transparent;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-outline:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 /* Hero Section */
 .hero {
   background-color: #f9fafb;
@@ -108,6 +130,13 @@
   margin: 0 0 2rem 0;
 }
 
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* Features Section */
 .features {
   padding: 5rem 2rem;
@@ -129,7 +158,7 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -138,6 +167,17 @@
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   background-color: #ffffff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .feature-title {
@@ -197,6 +237,51 @@
   color: #6b7280;
   line-height: 1.6;
   margin: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  padding: 5rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.cta-section p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin: 0 0 2rem 0;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-section .btn-primary {
+  background: white;
+  color: #1e40af;
+}
+
+.cta-section .btn-primary:hover {
+  background: #f3f4f6;
+}
+
+.cta-section .btn-outline {
+  border-color: white;
+  color: white;
+}
+
+.cta-section .btn-outline:hover {
+  background: rgba(255,255,255,0.1);
 }
 
 /* Footer */
@@ -276,13 +361,25 @@
   }
 
   .features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
   .steps {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+  }
+  
+  .header-actions {
+    gap: 0.5rem;
+  }
+  
+  .cta-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
   }
 }
 
@@ -304,6 +401,16 @@
     justify-content: center;
     gap: 1rem;
   }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+    order: 2;
+  }
+  
+  .header-actions .btn {
+    width: 100%;
+  }
 
   .nav-link {
     font-size: 0.875rem;
@@ -312,6 +419,11 @@
   .btn {
     padding: 0.625rem 1.25rem;
     font-size: 0.875rem;
+  }
+  
+  .btn-large {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
   }
 
   .hero {
@@ -325,6 +437,14 @@
   .hero-subtitle {
     font-size: 1rem;
   }
+  
+  .hero-actions {
+    flex-direction: column;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+  }
 
   .features,
   .how-it-works {
@@ -337,6 +457,7 @@
   }
 
   .features-grid {
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
@@ -355,6 +476,26 @@
   .steps {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
   }
 
   .footer {

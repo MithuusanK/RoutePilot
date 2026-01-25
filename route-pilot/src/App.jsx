@@ -1,40 +1,107 @@
 import { useState } from 'react'
 import './App.css'
 import UploadStops from './components/UploadStops'
+import DriverDashboard from './components/DriverDashboard'
+import TripPlanner from './components/TripPlanner'
+import FleetDashboard from './components/FleetDashboard'
+import { useTheme, NightModeToggle } from './context/ThemeContext'
 
 function App() {
-  const [showUpload, setShowUpload] = useState(false)
+  const [currentView, setCurrentView] = useState('landing') // landing, driver, planner, fleet, upload
+  const { nightMode } = useTheme()
 
-  if (showUpload) {
-    return (
-      <div className="app-container">
-        <header className="header">
-          <div className="header-container">
-            <a href="#" onClick={() => setShowUpload(false)} className="logo">RoutePilot</a>
-            <button className="btn btn-secondary" onClick={() => setShowUpload(false)}>
-              ← Back to Home
-            </button>
+  // Render sub-views
+  const renderView = () => {
+    switch (currentView) {
+      case 'driver':
+        return (
+          <div className={`app-container ${nightMode ? 'night-mode' : ''}`}>
+            <header className="header">
+              <div className="header-container">
+                <a href="#" onClick={() => setCurrentView('landing')} className="logo">🚛 RoutePilot</a>
+                <div className="header-actions">
+                  <NightModeToggle size="small" />
+                  <button className="btn btn-secondary" onClick={() => setCurrentView('landing')}>
+                    ← Back
+                  </button>
+                </div>
+              </div>
+            </header>
+            <DriverDashboard driverId="driver-001" />
           </div>
-        </header>
-        <UploadStops />
-      </div>
-    )
+        )
+      
+      case 'planner':
+        return (
+          <div className={`app-container ${nightMode ? 'night-mode' : ''}`}>
+            <header className="header">
+              <div className="header-container">
+                <a href="#" onClick={() => setCurrentView('landing')} className="logo">🚛 RoutePilot</a>
+                <div className="header-actions">
+                  <NightModeToggle size="small" />
+                  <button className="btn btn-secondary" onClick={() => setCurrentView('landing')}>
+                    ← Back
+                  </button>
+                </div>
+              </div>
+            </header>
+            <TripPlanner />
+          </div>
+        )
+      
+      case 'fleet':
+        return (
+          <FleetDashboard onBack={() => setCurrentView('landing')} />
+        )
+      
+      case 'upload':
+        return (
+          <div className={`app-container ${nightMode ? 'night-mode' : ''}`}>
+            <header className="header">
+              <div className="header-container">
+                <a href="#" onClick={() => setCurrentView('landing')} className="logo">🚛 RoutePilot</a>
+                <div className="header-actions">
+                  <NightModeToggle size="small" />
+                  <button className="btn btn-secondary" onClick={() => setCurrentView('landing')}>
+                    ← Back
+                  </button>
+                </div>
+              </div>
+            </header>
+            <UploadStops />
+          </div>
+        )
+      
+      default:
+        return null
+    }
+  }
+
+  // If not on landing page, render the sub-view
+  if (currentView !== 'landing') {
+    return renderView()
   }
 
   return (
-    <div className="landing-page">
+    <div className={`landing-page ${nightMode ? 'night-mode' : ''}`}>
       {/* Header */}
       <header className="header">
         <div className="header-container">
-          <a href="#" className="logo">RoutePilot</a>
+          <a href="#" className="logo">🚛 RoutePilot</a>
           <nav className="nav">
             <a href="#features" className="nav-link">Features</a>
             <a href="#how-it-works" className="nav-link">How It Works</a>
             <a href="#contact" className="nav-link">Contact</a>
           </nav>
-          <button className="btn btn-secondary" onClick={() => setShowUpload(true)}>
-            Upload Routes
-          </button>
+          <div className="header-actions">
+            <NightModeToggle size="small" />
+            <button className="btn btn-outline" onClick={() => setCurrentView('driver')}>
+              Driver Mode
+            </button>
+            <button className="btn btn-secondary" onClick={() => setCurrentView('fleet')}>
+              Fleet Dashboard
+            </button>
+          </div>
         </div>
       </header>
 
@@ -42,44 +109,67 @@ function App() {
       <section className="hero">
         <div className="hero-container">
           <h1 className="hero-title">
-            Route Optimization for Modern Fleet Managers
+            Truck-Safe Routing for Professional Drivers
           </h1>
           <p className="hero-subtitle">
-            Reduce operational costs by up to 30% through intelligent route planning and real-time optimization.
+            HOS-aware route planning, hazard avoidance, and real-time fleet management for 18-wheelers.
           </p>
-          <button className="btn btn-primary" onClick={() => setShowUpload(true)}>
-            Upload Your Routes Now
-          </button>
+          <div className="hero-actions">
+            <button className="btn btn-primary btn-large" onClick={() => setCurrentView('planner')}>
+              🗺️ Plan a Trip
+            </button>
+            <button className="btn btn-outline btn-large" onClick={() => setCurrentView('upload')}>
+              📤 Upload Routes
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
       <section id="features" className="features">
         <div className="section-container">
-          <h2 className="section-title">Features</h2>
+          <h2 className="section-title">Built for Big Rigs</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <h3 className="feature-title">Route Analysis</h3>
+              <div className="feature-icon">🛣️</div>
+              <h3 className="feature-title">Truck-Safe Routes</h3>
               <p className="feature-description">
-                Comprehensive analysis of current routes to identify inefficiencies and optimization opportunities.
+                Routes that respect bridge heights, weight limits, and hazmat restrictions. No surprises on the road.
               </p>
             </div>
             <div className="feature-card">
-              <h3 className="feature-title">Smart Optimization</h3>
+              <div className="feature-icon">⏱️</div>
+              <h3 className="feature-title">HOS Compliance</h3>
               <p className="feature-description">
-                AI-powered algorithms calculate the most efficient routes based on distance, traffic, and delivery windows.
+                Automatic break planning based on FMCSA hours of service rules. Stay legal and rested.
               </p>
             </div>
             <div className="feature-card">
-              <h3 className="feature-title">Cost Savings</h3>
+              <div className="feature-icon">⛽</div>
+              <h3 className="feature-title">Fuel Optimization</h3>
               <p className="feature-description">
-                Track fuel consumption, vehicle wear, and labor hours to measure and maximize your savings.
+                Find the best fuel stops along your route based on price and truck-friendly amenities.
               </p>
             </div>
             <div className="feature-card">
-              <h3 className="feature-title">Dynamic Scheduling</h3>
+              <div className="feature-icon">🚨</div>
+              <h3 className="feature-title">Real-Time Alerts</h3>
               <p className="feature-description">
-                Adapt to last-minute changes with real-time route adjustments and automated driver notifications.
+                Get notified about road hazards, weather conditions, and HOS warnings before they become problems.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📊</div>
+              <h3 className="feature-title">Fleet Analytics</h3>
+              <p className="feature-description">
+                Track your fleet's performance, fuel costs, and driver hours in one comprehensive dashboard.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📱</div>
+              <h3 className="feature-title">Mobile-First Design</h3>
+              <p className="feature-description">
+                Large buttons, night mode, and voice-ready interface designed for use in the cab.
               </p>
             </div>
           </div>
@@ -89,36 +179,52 @@ function App() {
       {/* How It Works Section */}
       <section id="how-it-works" className="how-it-works">
         <div className="section-container">
-          <h2 className="section-title">How It Works</h2>
+          <h2 className="section-title">Get Rolling in 4 Steps</h2>
           <div className="steps">
             <div className="step">
               <div className="step-number">1</div>
-              <h3 className="step-title">Upload Routes</h3>
+              <h3 className="step-title">Register Your Truck</h3>
               <p className="step-description">
-                Import your existing route data via CSV, API, or manual entry.
+                Enter your rig's specs: height, weight, axle count, and cargo type.
               </p>
             </div>
             <div className="step">
               <div className="step-number">2</div>
-              <h3 className="step-title">Analyze</h3>
+              <h3 className="step-title">Add Your Stops</h3>
               <p className="step-description">
-                Our system evaluates your routes for inefficiencies and potential improvements.
+                Enter pickup and delivery locations. We'll optimize the order.
               </p>
             </div>
             <div className="step">
               <div className="step-number">3</div>
-              <h3 className="step-title">Optimize</h3>
+              <h3 className="step-title">Review Your Route</h3>
               <p className="step-description">
-                Receive optimized route suggestions based on multiple factors and constraints.
+                See the safe route with break points, fuel stops, and hazard warnings.
               </p>
             </div>
             <div className="step">
               <div className="step-number">4</div>
-              <h3 className="step-title">Review Savings</h3>
+              <h3 className="step-title">Hit the Road</h3>
               <p className="step-description">
-                View detailed reports on projected cost reductions and efficiency gains.
+                Get turn-by-turn navigation with live updates and alerts.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="section-container">
+          <h2>Ready to Drive Smarter?</h2>
+          <p>Join thousands of drivers who trust RoutePilot for safer, more efficient routes.</p>
+          <div className="cta-buttons">
+            <button className="btn btn-primary btn-large" onClick={() => setCurrentView('planner')}>
+              Start Planning Now
+            </button>
+            <button className="btn btn-outline btn-large" onClick={() => setCurrentView('fleet')}>
+              Fleet Manager Portal
+            </button>
           </div>
         </div>
       </section>
